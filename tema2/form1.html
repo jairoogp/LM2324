@@ -7,8 +7,8 @@
 </head>
 <body>
     <form action="form1.html">
-
-    
+        <fieldset>
+            <legend>Rellenar</legend>    
     <input type="radio" id="" name="idioma" value="idiomaingles"> Inglés <br>
     <input type="radio" id="" name="idioma" value="idiomaaleman"> Alemán <br>
     <input type="radio" id="" name="idioma" value="idiomafrances"> Francés <br>
@@ -17,16 +17,29 @@
         <option value="usb">USB</option>
         <option value="paralelo">Paralelo</option>
         <option value="ps2">PS2</option>
-    </select>
+    </select><br>
 
-    <input type="text" name="nombre" id="">Nombre  <br>
-    <input type="text" name="apellidos" id="">Apellidos <br>
+    <label for="">Nombre</label>
+    <input type="text" name="nombre" id=""><br>
+    <label for=""> Apellidos</label>
+    <input type="text" name="apellidos" id=""><br>
 
-    <select name="" id="">
+    </fieldset>
 
+    <fieldset>
+        <legend>Indique sus preferencias por favor</legend>   
         
-    </select>
+        <select multiple name="sexo" id="">
+            <option value="hombre">Hombre</option> <br>
+            <option value="mujer">Mujer</option> <br>
+        </select>
+        <br>
+        
+        <input type="checkbox" name="sexo" id="" value="sexohombre"> Hombre <br>
+        <input type="checkbox" name="sexo" id="" value="sexomujer"> Mujer <br>
 
+        <label for=""> Elija una fecha:</label>
+        <input type="date" name="" id="">
  
 
 
