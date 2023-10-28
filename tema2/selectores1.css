@@ -1,0 +1,35 @@
+
+body{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.p1 {
+    color:#369 ;
+}
+
+p   {
+    color:#555;
+}
+
+
+a {
+    color:#C30 ;
+}
+
+.pagscomplejas {
+    color: #0000BB;
+    background-color: #FFFFCC;
+}
+
+.especial   { 
+    color: #FFFF00;
+    background: #000000;
+}
+
+ .gris  {
+    font-weight: bold;
+   
+} 
