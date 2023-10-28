@@ -19,25 +19,10 @@ h2  {
     font-family: Verdana, Calibri, sans-serif;
 }
 
-.titulo {
+.datos {
 color: #060;
 } 
 
-.autor {
-    color: #060;
-} 
-
-.editorial {
-color: #060;
-} 
-
-.añopublicacion {
-color: #060;
- } 
-
- .isbn {
-    color: #060;
- }
 
 
  .internet{
@@ -49,7 +34,7 @@ color: #060;
 
     color: #FFF ;
     background-color:#000 ;
-    
+
  }
 
 
