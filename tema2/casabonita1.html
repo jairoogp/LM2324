@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa bonita 1</title>
+</head>
+<style>
+      *   {
+            margin: 0;
+        }
+        body    {
+            /*background-image: url(https://imagenes.muyinteresante.es/files/composte_image/uploads/2023/08/01/64c927ca910e0.jpeg );
+            background-repeat: no-repeat;  */
+             background-color:rgb(0, 102, 255); 
+            width: 1350;
+            height: 335;
+            top: 500;
+            left:-350;
+            z-index:1;
+        }
+
+
+        .fachada    {
+                background-color: rgb(211, 155, 103);
+                position: absolute;
+                width:600px ;
+                height: 450px;
+                top: 250px;
+                left: 297px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-bottom-style: solid;
+                border-width:2px;
+        }
+
+        .ventana    {
+            background-color: rgb(0, 0, 0);
+            position: absolute;
+            width: 105px;
+            height: 105px;
+            top: 350px;
+            left: 350px ;
+        }
+        .segundaventana {
+            background-color: rgb(0, 0, 0);
+            position: absolute;
+            width: 105px;
+            height: 105px;
+            top: 350px;
+            left: 750px ;
+        }
+
+        .ventanapequeizq   {
+            background-color:white;
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 355px;
+            left: 355px ;
+            
+            color: black;
+        }
+        .ventanapequeder{
+            background-color: rgb(0, 238, 255) ;
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 355px;
+            left: 405px ;
+        }
+
+        .ventanaizqdeb  {
+            background-color:white;
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 405px;
+            left: 405px ;
+        }
+
+        .ventanaderdeb  {
+            background-color: rgb(0, 238, 255);
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 405px;
+            left: 355px ;
+        }
+
+        .ventanauno {
+
+              background-color: white;
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 405px;
+            left: 755px ;
+        }
+
+        .ventanados {
+            background-color:  rgb(0, 238, 255);
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 405px;
+            left: 805px ;
+        }
+
+        .ventanatres    {
+            background-color:  rgb(0, 238, 255);
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 355px;
+            left: 755px ;
+        }
+
+        .ventanacuatro  {
+            background-color: white;
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 355px;
+            left: 805px ;
+        }
+
+        .puerta {
+            background-color: rgba(58, 45, 45, 0.842);
+            position: absolute;
+            width: 150px;
+            height:250px;
+            top: 450px;
+            left: 525px ;
+            border-top-right-radius: 22%;
+            border-top-left-radius: 22%;
+
+        }
+
+        .pomo   {
+             border-radius: 100px;
+             background-color: rgb(24, 247, 143);
+             position: absolute;
+             width: 25px;
+            height:25px;
+            top: 550px;
+            left: 625px;
+        }
+
+        .sol   {
+            border-radius: 100px;
+             background-color: rgb(243, 247, 24);
+             position: absolute;
+             width: 150px;
+            height:150px;
+            top: 100px;
+            left:1000px;
+            }
+
+        .cesped {
+            background-image:url(https://cdn.pixabay.com/photo/2017/03/29/11/48/meadow-2184989_640.jpg);
+             position: absolute;
+             width: 1630px;
+             height: 335px;
+             top: 550px;
+             left:-350px;
+             z-index:-1;
+             
+            }
+
+        .dibujo {
+            position:absolute;
+            left:50px;
+            top: 100px;
+            }
+
+            .tejadouno  {
+                position: absolute;
+                background-color: red;
+                width:600px;
+                height:50px;
+                top:200px;
+                left:297px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-width:2px;
+
+            }
+            .tejadodos  {
+                position: absolute;
+                background-color: red;
+                width:500px;
+                height:50px;
+                top:150px;
+                left:350px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-width:2px;
+
+
+            
+            }
+
+            .tejadotres {
+                position: absolute;
+                background-color: red;
+                width:300px;
+                height:50px;
+                top:100px;
+                left:450px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-width:2px;
+
+
+            }
+
+            .tejadocuatro   {
+                position: absolute;
+                background-color: red;
+                width:100px;
+                height:50px;
+                top:50px;
+                left:550px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-width:2px;
+            }
+
+       
+           
+
+            .tronco {
+                position: absolute;
+                background-color: rgba(177, 55, 55, 0.212);
+                width:60px;
+                height:250px;
+                top:350px;
+                left:-100px;
+                z-index:2;
+            }
+
+            .coparbol   {
+                position: absolute;
+                background-color: rgba(23, 187, 17, 0.212);
+                width:300px;
+                height:250px;
+                top:100px;
+                left:-200px;
+                border-radius: 15%;
+                z-index:2;
+
+            }
+
+            .arbol  {
+                width:550px;
+                background-repeat: no-repeat;
+                height: 700px;
+                position: absolute;
+                left: 225px;
+                z-index:1;
+            }
+            
+
+        
+
+
+  
+    
+
+
+
+    </style>
+</head>
+
+
+<body>
+        <div class="dibujo">
+        <div class="fachada"></div>
+        <div class="ventana"></div>
+        <div class="segundaventana"></div>
+        <div class="ventanapequeizq"></div>
+        <div class="ventanapequeder"></div>
+        <div class="ventanaizqdeb"></div>
+        <div class="ventanaderdeb"></div>
+        <div class="ventanauno"></div>
+        <div class="ventanados"></div>
+        <div class="ventanatres"></div>
+        <div class="ventanacuatro"></div>
+        <div class="puerta"></div>
+        <div class="pomo"></div>
+        <div class="tejadouno"></div>
+        <div class="tejadodos"></div>
+        <div class="tejadotres"></div>
+        <div class="tejadocuatro"></div>
+        </div>
+        <div class="arbol">
+        <div class="tronco"></div>
+        <div class="coparbol"></div>
+        </div>
+        <div class="sol"></div>
+        <div class="cesped"></div>
+    
+
+    
+</body>
+</html>
