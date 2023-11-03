@@ -5,33 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CASA CSS</title>
     <style>
-
+        
+        *   {
+            margin: 0;
+        }
         body    {
             background-color: rgb(0, 132, 255);
         }
 
         .fachada    {
-                background-color: rgb(128, 62, 0);
+                background-color: rgb(168, 122, 79);
                 position: absolute;
                 width:600px ;
                 height: 450px;
                 top: 250px;
-                left: 300px;
+                left: 297px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-bottom-style: solid;
+                border-width:2px;
         }
 
         .ventana    {
             background-color: rgb(0, 0, 0);
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 105px;
+            height: 105px;
             top: 350px;
             left: 350px ;
         }
         .segundaventana {
             background-color: rgb(0, 0, 0);
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 105px;
+            height: 105px;
             top: 350px;
             left: 750px ;
         }
@@ -41,16 +49,18 @@
             position: absolute;
             width: 45px;
             height: 45px;
-            top: 350px;
-            left: 350px ;
+            top: 355px;
+            left: 355px ;
+            
+            color: black;
         }
         .ventanapequeder{
             background-color: rgb(0, 238, 255) ;
             position: absolute;
             width: 45px;
             height: 45px;
-            top: 350px;
-            left: 400px ;
+            top: 355px;
+            left: 405px ;
         }
 
         .ventanaizqdeb  {
@@ -58,8 +68,8 @@
             position: absolute;
             width: 45px;
             height: 45px;
-            top: 400px;
-            left: 400px ;
+            top: 405px;
+            left: 405px ;
         }
 
         .ventanaderdeb  {
@@ -67,8 +77,8 @@
             position: absolute;
             width: 45px;
             height: 45px;
-            top: 400px;
-            left: 350px ;
+            top: 405px;
+            left: 355px ;
         }
 
         .ventanauno {
@@ -77,8 +87,8 @@
             position: absolute;
             width: 45px;
             height: 45px;
-            top: 400px;
-            left: 750px ;
+            top: 405px;
+            left: 755px ;
         }
 
         .ventanados {
@@ -86,8 +96,8 @@
             position: absolute;
             width: 45px;
             height: 45px;
-            top: 400px;
-            left: 800px ;
+            top: 405px;
+            left: 805px ;
         }
 
         .ventanatres    {
@@ -95,8 +105,8 @@
             position: absolute;
             width: 45px;
             height: 45px;
-            top: 350px;
-            left: 750px ;
+            top: 355px;
+            left: 755px ;
         }
 
         .ventanacuatro  {
@@ -104,18 +114,19 @@
             position: absolute;
             width: 45px;
             height: 45px;
-            top: 350px;
-            left: 800px ;
+            top: 355px;
+            left: 805px ;
         }
 
         .puerta {
-            background-color: black;
+            background-color: rgba(58, 45, 45, 0.842);
             position: absolute;
             width: 150px;
             height:250px;
             top: 450px;
             left: 525px ;
-            border-radius:50px;
+            border-top-right-radius: 22%;
+            border-top-left-radius: 22%;
 
         }
 
@@ -133,8 +144,8 @@
             border-radius: 100px;
              background-color: rgb(243, 247, 24);
              position: absolute;
-             width: 100px;
-            height:100px;
+             width: 150px;
+            height:150px;
             top: 75px;
             right: 80px;
         }
@@ -142,7 +153,99 @@
         .cesped {
             background-color: green;
             position: absolute;
+<<<<<<< HEAD
+=======
+            width:100%;
+            height: 300px;
+            bottom:0px;
+            z-index: -1;
+>>>>>>> a91859a27e4312d5652c54f3b5cc1ec4cd3edcd9
         }
+
+        .dibujo {
+            position:absolute;
+            left:240px;
+            }
+
+            .tejadouno  {
+                position: absolute;
+                background-color: red;
+                width:600px;
+                height:50px;
+                top:200px;
+                left:297px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-width:2px;
+
+            }
+            .tejadodos  {
+                position: absolute;
+                background-color: red;
+                width:500px;
+                height:50px;
+                top:150px;
+                left:350px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-width:2px;
+
+
+            
+            }
+
+            .tejadotres {
+                position: absolute;
+                background-color: red;
+                width:300px;
+                height:50px;
+                top:100px;
+                left:450px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-width:2px;
+
+
+            }
+
+            .tejadocuatro   {
+                position: absolute;
+                background-color: red;
+                width:100px;
+                height:50px;
+                top:50px;
+                left:550px;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-left-style: solid;
+                border-width:2px;
+            }
+
+       
+           
+
+            .tronco {
+                position: absolute;
+                background-color: rgba(177, 55, 55, 0.212);
+                width:60px;
+                height:250px;
+                top:350px;
+                left:-100px;
+            }
+
+            .coparbol   {
+                position: absolute;
+                background-color: rgba(23, 187, 17, 0.212);
+                width:300px;
+                height:250px;
+                top:100px;
+                left:-200px;
+                border-radius: 15%;
+
+            }
 
         
 
@@ -155,7 +258,7 @@
     </style>
 </head>
 <body>
-
+    <div class="dibujo">
     <div class="fachada"></div>
     <div class="ventana"></div>
     <div class="segundaventana"></div>
@@ -169,6 +272,12 @@
     <div class="ventanacuatro"></div>
     <div class="puerta"></div>
     <div class="pomo"></div>
+    <div class="tejadouno"></div>
+    <div class="tejadodos"></div>
+    <div class="tejadotres"></div>
+    <div class="tejadocuatro"></div>
+    <div class="tronco"></div>
+    <div class="coparbol"></div>
     <div class="sol"></div>
     <div class="cesped"></div>
 
