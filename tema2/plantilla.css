@@ -1,0 +1,32 @@
+.banner  {
+    background-image: url(bannercochesito.png);
+    background-repeat: no-repeat;
+    width: 1300px  ;
+    height:250px ;
+    position: fixed;
+    top: 0;
+    left: 0;
+   
+
+}
+
+.paginas    {
+    left:0px;
+    top:450px;
+    line-height: 70px;
+    background-color: rgb(221, 245, 220);
+    width: 25%;
+    height: 50%;
+    float: left;
+    top: 50%;
+}
+
+a   {
+    text-decoration: none;
+}
+p   {
+    position: relative;
+    top:350px;
+    left: 300px;
+
+}
