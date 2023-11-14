@@ -16,9 +16,9 @@ body    {
     line-height: 70px;
     background-color: rgb(221, 245, 220);
     width:200px;
-    height: 700px;
+    height: 1000px;
     float: left;
-    margin-top: 225px;
+    margin-top: 190px;
 }
 
 a   {
@@ -33,21 +33,24 @@ a   {
     height: 100px;
     top: 250px;
     color: white;
+    text-indent: 20px;
     }
 .derecha    {
     line-height: 70px;
     background-color: rgb(221, 245, 220);
+    margin-top: -160px;
     width:200px;
-    height: 700px;
+    height: 1000px;
     float: right;
+    background-image: url(leche.png);
     
 }
 
-img {
-    width:250px ;
+.gambol {
+    width:270px ;
     height: 200px;
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: -90px;
 }
 
 .pdos   {
@@ -57,6 +60,28 @@ img {
     text-align: justify;
     width: 1000px;
     height: 100px;
-    top: 350px;
+    top: 380px;
     color: white;
+    text-indent: 20px;
+
+}
+
+.ptres  {
+    left: 325px;
+    position: relative;
+    text-align: center;
+    text-align: justify;
+    width: 700px;
+    height: 100px;
+    top: 750px;
+    color: white;
+    text-indent: 20px;
+
+}
+
+.gamboldos  {
+    width:270px ;
+    height: 200px;
+    margin-left: 30px;
+    margin-top: 520px;
 }
