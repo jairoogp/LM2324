@@ -1,0 +1,23 @@
+body    {
+    background-color: rgba(236, 225, 123, 0.418);
+    font-size:18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+article {
+    width: 70%;
+}
+nav   {
+    width: 25%;    
+}
+
+
+
+.menu   {
+    background-color: rgba(128, 128, 128, 0.582);
+    height: 50px;
+    width: 150px;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 3px;
+}
+
