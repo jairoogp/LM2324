@@ -4,3 +4,68 @@ body    {
     text-align: center;
     
 }
+.contenedor {
+    display: grid;
+    width: 80%;
+    height: 84vh;
+    text-align: center;
+    grid-template-areas:
+    'header header header ' 
+    'menu menu menu'
+    'contenido contenido contenido'
+    'banners banners banners'
+    'footer footer footer';
+    padding: 20px;
+    border: 2px dashed lightgray;
+}
+
+.contenedor , header, menu  {
+    border: 4px solid black;
+    background-color: lightgray;
+    text-align: center;
+}
+
+#contenido  {
+    border: 4px solid black;
+    background-color: lightgray;
+    text-align: center;
+}
+
+#banners    {
+    border: 4px solid black;
+    background-color: lightgray;
+    text-align: center;
+}
+#footer {
+    border: 4px solid black;
+    background-color: lightgray;
+    text-align: center;
+}
+
+header   {
+    grid-area: header;
+    height: 10vh;
+}
+
+menu    {
+    grid-area: menu;
+    height: 20vh;
+}
+
+#contenido  {
+    grid-area: contenido;
+    height: auto;
+
+}
+
+#banners    {
+    grid-area: banners;
+    height: auto;
+}
+
+#footer {
+    grid-area: footer;
+    height: 10vh;
+}
+
+
