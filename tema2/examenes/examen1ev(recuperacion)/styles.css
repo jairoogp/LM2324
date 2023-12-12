@@ -5,22 +5,21 @@
 body    {
     color: white;
     margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 header  {
     text-align: center;
-    background-color: lightslategray;
-    width: 100%;
-    margin: 0;
-    height: 100px;
-    justify-content: center;
-    align-content: center;
-    border-radius: 8px 8px 8px 8px;
+    background-color: darkgray;
 }
 
-.contenedor  {
+.wrapper  {
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: white;
+    font-family:"Century Gothic", Helvetica, arial, sans-serif;
+    font-weight: 1.1em;
     width: 100%;
 
 }
@@ -31,7 +30,7 @@ header  {
     border: 5px solid gold ;
 }
 
-.elementos  {
+nav  {
     background-color: lightseagreen;
     width: 15%;
     border-radius: 8px 8px 8px 8px;
@@ -45,11 +44,6 @@ header  {
 
 }
 footer  {
-    color: black;
-    background-color: rgb(179, 126, 12);
-    height: 100px;
+    background-color: darkgoldenrod;
     text-align: center;
-    justify-content: center;
-    align-content: center;
-    border-radius: 8px 8px 8px 8px; 
 }
