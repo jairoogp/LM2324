@@ -1,58 +1,76 @@
 *  {
     box-sizing: border-box;
-    border-radius: 8px;
-    margin:2px;
+    margin: 0;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-
-}
 
 header  {
-    background-color: lightslategray;
+    background-color:darkgray;
     width: 100%;
-    height: 100px;
-    line-height: 20px;
     margin-top: 0;
     text-align: center;
 }
 
 .contenedor {
     display: flex;
+    flex-direction: column;
     width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    background-color: white;
+    font-family: "Century Gothic",helvetica, arial, sans-serif;
+    font-weight: 1.1em;
 }
 
-.elementos  {
-    background-color: lightskyblue;
-    width: 15%;
-    line-height: 50px;
+.wrapper    {
+    display: flex;
 }
 
-.contenido  {
-    background-color: rgb(0, 128, 43);
-    width: 85%;
-    line-height:30px;
+nav  {
+    background-color: darkcyan;
+    width: 15em auto;
+    width:600px;
+}
+nav a {
+    cursor: progress;
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    line-height: 30px;
 }
 
-p::first-letter {
-    color: lightslategray;
-    font-size: x-large;
+
+section {
+    background-color: darkolivegreen;
+
 }
+section p::first-letter {
+    color: darkgray;
+    font-size: 2em;
+}
+
 
 footer  {
-    background-color: rgb(255, 145, 0);
-    height: 100px;
+    background-color:darkgoldenrod;
     text-align: center;
 }
 
 img {
-    width: 15%;
-    border: 4px solid gold;
+    width: 200px;
     height: 200px;
+    float: left;
+    border-radius: 2vh;
+    max-width: 100%;
+    border: 5px solid goldenrod;
 }
 
-p   {
-    margin-left: 20px;
+header, nav, section, footer {
+    padding: 20px;
+    margin: 20;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    color: white;
 }
+
+
