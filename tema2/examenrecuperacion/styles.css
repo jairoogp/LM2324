@@ -125,13 +125,13 @@ header, nav, section, footer {
     }
  }
 
- @media print {
-    .contenedor .wrapper header footer  {
-        display: none;
-    }
- }
-<<<<<<< HEAD
- 
-=======
- 
->>>>>>> 0fbf2d618e876083a8a7c670d52457f59348d270
+ @media print { 
+ body{
+    font-family: 'Times New Roman', Times, serif;
+    color:black;
+    background-color: white;
+  }
+  nav {
+    display:none;
+  }
+}
