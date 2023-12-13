@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
-*   {
-    box-sizing: border-box;
+html    {
     margin: 0;
 }
 body    {
@@ -9,8 +7,9 @@ body    {
     background-color: #970043;
     height: 100vh;
 }
-
-h2, footer  {
+header {
+    border-top-right-radius:10px ;
+    border-top-left-radius: 10px;
     background-color: #ffd100;
     text-align: center;
 }
@@ -22,37 +21,23 @@ h2  {
 
 .contenedor {
     display: flex;
-    flex: 1;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: auto;
+    flex-direction: row;
+    width: 100%;
 }
 
- #slide {
-    max-width:100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
- }
+.articulo {
+    background-color: #f2f2f2;
+    width: 50%;
+    justify-content: center;
+    margin: auto;
+    max-width: 100%;
+    margin-left: 30px;
+}
+
 
 .colizq {
-    background-color:#970043;
-}
-
-.articulo   {
-    background-color: #f2f2f2;
-    overflow: auto;
-    flex: 2;
-    height: 100vh;
-}
-.articulo a {
-    color: #ffd100;
-
-}
-.articulo img   {
-    border-radius: 10px;
-    max-width: 100%;
+    width: 25%;
+    text-align: center;
 }
 .colder {
     background-color:#970043;
@@ -60,27 +45,73 @@ h2  {
 .nodos  {
     max-width: 100%;
 }
-a   {
-    text-decoration: none;
-    cursor: help;
-}
 
-.articulo:hover {
-    background-color: #970043;
-}
 p::first-letter {
-    font-size: 2em;
-    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+#slide  {
+    max-width: 100%;
 }
 
 footer  {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: 10px;
+    width: 100%;
+    background-color: #ffd100;
+    height: 5vh;
+    text-align: center;
+    border-bottom-left-radius: 20px ;
+    border-bottom-right-radius: 20px ;
+    justify-content: center;
 }
 
-@media (max-width:768px)    {
+#idfot  {
+    color: black;
+    cursor: help;
+}
+
+@media only screen and  (max-width: 768px)  {
+    body    {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    }    
+
+    .contenedor {
+    display: flex;
+    flex-direction: column;
+    }
+
+    #primera{
+        width: 100%;
+        order:1;
+    }
+
+    header  {
+        width: 100%;
+        order: -1;
+    }
+    .colizq {
+        width: 100%;
+    }
+
+    .articulo:hover {
+        background-color: #f2f2f2;
+    }
+
+
     .articulo   {
         flex-direction: column;
+        width: 100%;
+        order: -2;
+        
     }
+
+    .colder {
+        width: 100%;
+    }
+    footer  {
+        width: 100%;
+    }
+
 }
