@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+body    {
+    background-color: lightgrey;
+}
+body, input, select, textarea   {
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Open Sans Condensed' ,Arial, Helvetica, sans-serif;
+}
+
+form    {
+    border: 1px solid black;
+    background-color: white;
+}
+fieldset    {
+  border: 1px solid white;
+
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-row-gap: 1em;
+}
+
+textarea    {
+    grid-column-end: span 2;
+}

@@ -1,0 +1,137 @@
+*  {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+header  {
+    background-color:darkgray;
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    background-color: white;
+    font-family: "Century Gothic",helvetica, arial, sans-serif;
+    font-weight: 1.1em;
+}
+
+.wrapper    {
+    display: flex;
+}
+
+nav  {
+    background-color: darkcyan;
+    width: 15em auto;
+    width:600px;
+}
+nav a {
+    cursor: progress;
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    line-height: 30px;
+}
+
+
+section {
+    background-color: darkolivegreen;
+
+}
+section p::first-letter {
+    color: darkgray;
+    font-size: 2em;
+}
+
+
+footer  {
+    background-color:darkgoldenrod;
+    text-align: center;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    float: left;
+    border-radius: 2vh;
+    max-width: 100%;
+    border: 5px solid goldenrod;
+}
+
+header, nav, section, footer {
+    padding: 20px;
+    margin: 20;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    color: white;
+}
+
+@media (max-width:641px)    {
+    .contenedor {
+        display: flex;
+        flex-direction: column;
+    }
+   nav {
+    width: 50%;
+   }
+   section {
+    width: 50%;
+   }
+}
+
+@media (max-width:640px)    {
+    .wrapper    {
+        display: flex;
+        flex-direction: column;
+    }
+    nav {
+        width:100%;
+    }
+    section {
+        width: 100%;
+    }
+    }
+
+@media (max-width:810px)    {
+    nav {
+        width: 25%;
+    }
+    section {
+        width: 75%;
+    }
+}
+
+@media (max-width:414px)    {
+   nav  {
+    width: 100%;
+   }
+   section {
+    width: 100%;
+   }
+}
+@media (max-width:201px)    {
+    nav  {
+     width: 100%;
+    }
+    section {
+     width: 100%;
+    }
+ }
+
+ @media print { 
+ body{
+    font-family: 'Times New Roman', Times, serif;
+    color:black;
+    background-color: white;
+  }
+  nav {
+    display:none;
+  }
+}
