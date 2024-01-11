@@ -1,0 +1,7 @@
+function rojo () {
+
+}
+
+function verde () {
+   
+}
