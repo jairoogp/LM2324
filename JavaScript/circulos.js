@@ -26,7 +26,7 @@ function mostrar(caja){
 
 /* Versión con un solo botón */
 function ocultar_o_mostrar(caja){
-    if(document.getElementById(caja).style.visibility=="visible" || document.getElementById)
+    if(document.getElementById(caja).style.visibility=="visible")
     document.getElementById(caja).style.visibility = "hidden"
     else
         document.getElementById(caja).style.visibility = "visible";
