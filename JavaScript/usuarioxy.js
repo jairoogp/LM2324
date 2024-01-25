@@ -4,5 +4,6 @@ function introducir ()  {
     cadena = document.getElementById("usuario").value;
     cadenita = document.getElementById("contraseña").value;
     alert('Bienvenido ' + cadena + cadenita)
+//if(usuario == "" || contraseña =="")
 }
 
