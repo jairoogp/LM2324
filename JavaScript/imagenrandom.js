@@ -10,5 +10,5 @@ escudo[3] = "imagen5.jpg";
 escudo[4] = "imagen6.png";
 
 function mostrarImagen() {
-    document.getElementById("resultado").src = escudos[numero(4)-1];
+    document.getElementById("imgal").src = escudos[numero(5)-1];
 }
