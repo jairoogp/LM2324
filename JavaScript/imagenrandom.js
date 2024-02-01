@@ -1,14 +1,11 @@
-function numero(x)  {
-    return(Math.floor(Math.random()* x + 1));
+function random(min, max)  {
+    return(Math.floor(Math.random() * (max - min +1)) + min);
 }
 
-var escudos = newArray()
-escudo[0] = "imagen1.jpg";
-escudo[1] = "imagen2.jpg";
-escudo[2] = "imagen4.png";
-escudo[3] = "imagen5.jpg";
-escudo[4] = "imagen6.png";
+var escudos = ["imagen1.jpg","imagen2.jpg","imagen4.png","imagen5.jpg","imagen6.png"];
+
 
 function mostrarImagen() {
-    document.getElementById("imgal").src = escudos[numero(5)-1];
+    var numero = random(0,escudos.length -1);
+    document.getElementById("imgal").src = "images/" + escudos[numero];
 }
