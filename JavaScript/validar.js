@@ -59,3 +59,10 @@ function validarDNI(){
         dniValido = false;
     return dniValido;
 }
+
+function limpia()   {
+    let cadena = document.getElementById("dni").value;
+    let cadenaSinEspacios = cadena.replace(/ /g,"");
+    let cadenaLimpia = cadenaSinEspacios.toUpperCase();
+    document.getElementById("campo6").innerHTML = cadenaLimpia;
+}
