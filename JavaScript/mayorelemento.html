@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEVUELVEME EL MAYOR ELEMENTO PERRO</title>
     <script src="mayorelemento.js"></script>
+    <script>
+        var listaNumeros=[] //Vector
+        function anadir ()  {
+            let numero = parseFloat(document.getElementById("numero").value);
+            listaNumeros.push(numero);
+            document.getElementById("numeros").innerHTML = listaNumeros;
+        }
+    </script>
 </head>
 <body>
     <h1>ENCUENTRA EL NÚMERO MÁS GRANDE</h1>
-    <input type="text" id="numero">
-    <button onclick="mayor()"></button>
+    <input type="text" id="numero" placeholder="Introduce un número">
+    <button onclick="imprimir(listaNumeros)">Imprimir elementos</button>
+    <button onclick="var maximo = mayor(listaNumeros);document.getElementById('resultado').innerHTML = maximo;">Calcular mayor</button>
+    <button onclick="var minimo = menor(listaNumeros);document.getElementById('resultado').innerHTML = minimo;">Calcular menor</button>
+    <button onclick="anadir()">Añadir</button>
     <p id="resultado"></p>
+    <p id="numeros"></p>
 </body>
 </html>
