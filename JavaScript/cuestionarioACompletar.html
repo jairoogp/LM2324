@@ -14,12 +14,21 @@ div#examen
 var pos = 0,test,examen,pregunta,opcion,opciones,chA,chB,chV
 var preguntas =[['¿Cúanto es 10 + 4','12','14','16','B'], ['¿Cúanto es 20 - 9','7','13','11','C'] , ['¿Cúanto es 7 * 3','21','24','25','A'] , ['¿Cúanto es 8 / 2','10','2','4','C']]
 var total = preguntas.length;
+function primeraPregunta () {
+    document.getElementById("opcA").value;
+    document.getElementById("opcionA")
+}
 </script>
 
 </head>
 <body>
 <h1>Calculadora humana</h1>
 <h2 id="estado"></h2>
-<div id="examen"></div>
+<div id="examen">
+<input type="radio" name="opciones" id="opcA" value="opcionA"><br>
+<input type="radio" name="opciones" id="opcB" value="opcionB"><br>
+<input type="radio" name="opciones" id="opcC" value="opcionC"> <br>
+<button onclick="primeraPregunta()">Enviar respuesta</button>
+</div>
 </body>
 </html>
