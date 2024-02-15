@@ -21,8 +21,8 @@ var preguntas = [
 ];
 
 function hacerPregunta(){
-	test = document.getElementById("examen").value; /* Obtengo el div del examen */
-	if(pos>=preguntas.length){ /* ¿Cuando hemos llegado al final del cuestionario? La variable pos la comparo con algo */
+	test = document.getElementById("examen"); /* Obtengo el div del examen */
+	if(pos>=preguntas.length){ /* ¿Cuando hemos llegado al final del cuestionario? La variable pos la comparo con algo */ // tambien vale la opcion pos==4, pero preguntas.length está mejor puesto
 		test.innerHTML = "<h2>Conseguiste acertar "+ correctas +" de "+ preguntas.length +" preguntas</h2>"; /* En correctas llevamos el contador de acertadas */
 		document.getElementById("estado").innerHTML = "Prueba completada"; /* En el estado decimos que hemos completado el cuestionario */
 		pos = 0;
@@ -30,7 +30,7 @@ function hacerPregunta(){
 		return false;
 	}
 	document.getElementById("estado").innerHTML = "Pregunta "+(pos+1)+" de "+preguntas.length; /* Mostramos el progreso en el cuestionario */
-	pregunta = pregunta[pos][0]; /* Introducimos en la variable global pregunta la pregunta */
+	pregunta = preguntas[pos][0]; /* Introducimos en la variable global pregunta la pregunta */
 	chA = preguntas[pos][1];
 	chB = preguntas[pos][2];
 	chC = preguntas[pos][3];
@@ -38,7 +38,7 @@ function hacerPregunta(){
 	test.innerHTML += "<input type='radio' name='opciones' value='A'> "+chA+"<br>";
 	test.innerHTML += "<input type='radio' name='opciones' value='B'> "+chB+"<br>";
 	test.innerHTML += "<input type='radio' name='opciones' value='C'> "+chC+"<br><br>";
-	test.innerHTML += "<button onclick="comprobarRespuesta()" name='correctas'> " + "<br>"; /* Aquí deberíamos poner un botón que cuando se pulse se compruebe la respuesta */
+	test.innerHTML += '<button onclick="comprobarRespuesta()">Enviar respuesta </button>' + "<br>"; /* Aquí deberíamos poner un botón que cuando se pulse se compruebe la respuesta */
 }
 function comprobarRespuesta(){
 	opciones = document.getElementsByName("opciones");
@@ -48,12 +48,12 @@ function comprobarRespuesta(){
 			opcion = opciones[i].value;
 		}
 	}
-	if(opcion==correctas[pos][4]) /* Si la opción marcada es la correcta según el array de arrays preguntas entonces ... */
+	if(opcion==preguntas[pos][4]) /* Si la opción marcada es la correcta según el array de arrays preguntas entonces ... */
     {
 		correctas+=1; /* Contamos que ha acertado */
 	}
-	pos++;
-	hacerPregunta; /* Hacemos pregunta */
+	pos++;		// en cualquier caso pasamos a la siguiente pregunta
+	hacerPregunta(); /* Hacemos pregunta */
 }
 window.addEventListener("load", hacerPregunta, false);
 </script>
