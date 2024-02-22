@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2:Cambio de tema </title>
+</head>
+<body>
+    <h1>Ejercicio 2 : Cambio de tema</h1>
+    <p id="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum voluptatum voluptates sequi. Officiis tempore sed optio vitae soluta eveniet quaerat praesentium nemo ad magni dolor ipsam, necessitatibus amet quae commodi?</p>
+    <button onclick="colorClaro()">Tema claro </button>
+    <button onclick="colorOscuro()">Tema oscuro</button>
+   
+    <script>
+        
+        let color = localStorage.setItem("tema",texto);
+        function cargaPagina()  {
+            localStorage.getItem("tema");
+        }
+
+        function colorClaro()   {
+            document.getElementById("texto").style.color="black";
+            document.body.style.backgroundColor="#33F6FF";
+            localStorage.setItem("tema",color);
+        }
+
+        function colorOscuro()  {
+            document.getElementById("texto").style.color="gray";
+            document.body.style.backgroundColor="black";
+            document.getElementsByTagName("h1").style.color="white";
+            localStorage.setItem("tema",color);
+        }
+
+        window.onload=cargaPagina();
+    </script>
+</body>
+</html>
