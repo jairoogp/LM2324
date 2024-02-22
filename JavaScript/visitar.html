@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISITAR LA PAGINA WEB</title>
+</head>
+<body>
+    <p id="parrafo">Has visitado esta pagina 0 veces</p>
+
+        <script>
+        function visitar()  {
+            let veces = localStorage.getItem("veces");
+            if (veces!=null)    {
+                veces = parseInt(veces);
+                document.getElementById("parrafo").innerHTML="Has visitado esta pagina " +veces+" veces";
+                veces = veces+1;
+                localStorage.setItem("veces",veces);
+            }
+
+            else {
+                document.getElementById("parrafo").innerHTML="Es la primera vez que entras en la página";
+                localStorage.setItem("veces","1");
+            }
+           
+        }
+
+        window.onload = visitar();
+        </script>
+            
+</body>
+</html>

@@ -7,27 +7,22 @@
 </head>
 <body>
     <h1>Enlaces de PDFS</h1>
-    
-    <a id="ficheroActual" onclick="verFichero()" href="fichero1.pdf"></a>
-
+    <a href=""></a>
+        <ul id="lista"></ul>
     <script>
-        var ficheros = ["fichero1.pdf","fichero2.pdf","fichero3.pdf","fichero4.pdf","fichero5.pdf","fichero6.pdf","fichero7.pdf","fichero8.pdf","fichero9.pdf","fichero10.pdf",
-        "fichero11.pdf","fichero12.pdf","fichero13.pdf","fichero14.pdf","fichero15.pdf","fichero16.pdf","fichero17.pdf","fichero18.pdf","fichero19.pdf","fichero20.pdf",];
-        var indice = 0;
-        var ficherosTotal = 20;
-        ficherosTotal = ficheros.length
+     
         
         function verFichero()   {
-            var ficheroActual = document.getElementById("ficheroActual");
-            for (i=0;i<ficheros.length;i++)    {
-                var ficheroActual = document.getElementById("ficheroActual");
-                var imagen = document.createElement('p');
-                p.textcontent = "Fichero " + (ficheroActual.children.length + 1);
-                ficheroActual.appendChild(imagen);
+            var lista = document.getElementById("lista"); // lo que obtengo es el ul
+        //    var i; // hay que declarar la variable siempre que esté dentro del for y no esté fuera
+            for (var i=1;i<=20;i++)    {
+                var elemento = document.createElement("li");
+                elemento.innerHTML = "<a href='fichero" +i+".pdf' target='_blank'>Fichero " + (lista.children.length + 1)+"<img width='25' src='download.png'></a>"; 
+                lista.appendChild(elemento);
             }
         }
 
-
+        window.onload = verFichero();
     </script>
     
 
