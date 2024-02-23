@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Tareas pendientes por hacer:</h1>
+    <ul id="lista"></ul>
+    <input id="tarea" type="text" placeholder="Añade una tarea a la lista">
+    <button onclick="anadirElemento()">AÑADIR UNA TAREITA</button>
+
+    <script>
+        var problemas =[]; // array q en principio esta vacio
+        function anadirElemento()   {
+            var tarea = document.getElementById("tarea").value
+            var lista = document.getElementById("lista");
+            var elemento = document.createElement("li");
+            elemento.textContent = tarea;
+            lista.appendChild(elemento);
+            problemas.push(elemento);
+            var cadena ="";
+            for(var i=0; i<problemas.length;i++)    {
+                cadena = cadena + problemas[i].textContent + ",";       // conseguir UNA CADENA UNA CADENA UNA CADENA UNA CADENA
+            }
+            // al finalizar el bucle en cadena tengo mi lista de tarea
+            localStorage.setItem("problemas",cadena);   
+        }
+
+        function cargaPagina    ()  {
+            let cadenaTareas = localStorage.getItem("problemas")
+            if(cadenaTareas!=null)  {
+                // tengo tareas pendientes
+            var elemento = document.createElement("li");
+            var lista = document.getElementById("lista");
+            elemento.textContent = cadenaTareas;
+            lista.appendChild(elemento);
+            /* hay que cambiar el if */
+            }
+            else {
+                // no tengo nada que mostrar
+            }
+        }
+
+        window.onload=cargaPagina();
+    </script>
+</body>
+</html>

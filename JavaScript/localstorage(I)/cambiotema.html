@@ -6,31 +6,38 @@
     <title>Ejercicio 2:Cambio de tema </title>
 </head>
 <body>
-    <h1>Ejercicio 2 : Cambio de tema</h1>
+    <h1  id="encabezado">Ejercicio 2 : Cambio de tema</h1>
     <p id="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum voluptatum voluptates sequi. Officiis tempore sed optio vitae soluta eveniet quaerat praesentium nemo ad magni dolor ipsam, necessitatibus amet quae commodi?</p>
-    <button onclick="colorClaro()">Tema claro </button>
+    <button onclick="colorClaro()">Tema claro</button>
     <button onclick="colorOscuro()">Tema oscuro</button>
    
     <script>
         
-        let color = localStorage.setItem("tema",texto);
         function cargaPagina()  {
-            localStorage.getItem("tema");
+         let tema=localStorage.getItem("tema");
+            if(tema=="oscuro")
+            colorOscuro();
+            else
+             colorClaro() ;           
         }
 
         function colorClaro()   {
             document.getElementById("texto").style.color="black";
-            document.body.style.backgroundColor="#33F6FF";
-            localStorage.setItem("tema",color);
+            document.body.style.backgroundColor="#F1E5E3";
+            document.getElementById("encabezado").style.color="black";
+            guardartema("claro");
         }
 
         function colorOscuro()  {
-            document.getElementById("texto").style.color="gray";
+            document.getElementById("texto").style.color="green";
             document.body.style.backgroundColor="black";
-            document.getElementsByTagName("h1").style.color="white";
-            localStorage.setItem("tema",color);
+            document.getElementById("encabezado").style.color="white";
+            guardartema("oscuro");
         }
-
+        function guardartema(tema)  {
+            localStorage.setItem("tema",tema);
+        }
+        
         window.onload=cargaPagina();
     </script>
 </body>
