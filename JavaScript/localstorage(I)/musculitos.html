@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bajada de pesos</title>
+</head>
+<body>
+    <h1>Bienvenido a TuttiGym</h1>
+<img width="400" src="../gimnasio.jpg" alt=""> <br> <br> 
+    <input id="peso" type="text">
+    <p>Introduzca su peso actual:</p>
+    <button onclick="guardar()">Guardar</button>
+    <p id="resultado"></p>
+    
+    <script>
+        let pesaje = 80;
+     //   let pesajeActual = 80;
+        function guardar()  {
+             document.getElementById("peso").value;
+             pesaje = localStorage.setItem("peso",peso)
+        }
+
+        function cargaPagina()  {
+            if(pesaje<80    )    {
+              document.getElementById("resultado")
+            }
+
+            
+
+            else    {
+                alert("Hay que ponerse más en forma y comer menos bollicaos")
+            }
+        }
+
+
+
+
+        window.onload = cargaPagina();
+    </script>
+</body>
+</html>
