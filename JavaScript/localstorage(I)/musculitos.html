@@ -8,35 +8,44 @@
 <body>
     <h1>Bienvenido a TuttiGym</h1>
 <img width="400" src="../gimnasio.jpg" alt=""> <br> <br> 
-    <input id="peso" type="text">
+    <input id="pesoActual" type="text">
     <p>Introduzca su peso actual:</p>
     <button onclick="guardar()">Guardar</button>
     <p id="resultado"></p>
     
     <script>
-        let pesaje = 80;
-     //   let pesajeActual = 80;
+        let pesoAnterior = 100000;  // valor inicial
         function guardar()  {
-             document.getElementById("peso").value;
-             pesaje = localStorage.setItem("peso",peso)
+           let pesoActual= document.getElementById("pesoActual").value;
+
+           if(pesoActual!="")   {
+            localStorage.setItem("peso",pesoActual)
+           }
+           if(pesoActual>pesoAnterior){
+            document.getElementById("resultado").innerHTML = "Hay que reducir carbohidratos"
+           }
+           if(pesoActual==pesoAnterior){
+            document.getElementById("resultado").innerHTML = "Pesas lo mismo que la última vez"
+           }
+           if(pesoActual<pesoAnterior){
+            document.getElementById("resultado").innerHTML = "¡Sigue así crack!"
+           }
+           else{
+            document.getElementById("resultado").innerHTML = "Tienes que introducir tu peso en Kg"
+           }
         }
 
         function cargaPagina()  {
-            if(pesaje<80    )    {
-              document.getElementById("resultado")
+            var almacenado = localStorage.getItem("peso");
+            if(almacenado!=null){
+                pesoAnterior= parseFloat(almacenado)
+                document.getElementById("resultado").innerHTML = "Tu peso anterior era de " + pesoAnterior + "Kg"
             }
 
-            
-
-            else    {
-                alert("Hay que ponerse más en forma y comer menos bollicaos")
-            }
         }
 
-
-
-
         window.onload = cargaPagina();
-    </script>
+
+</script>
 </body>
 </html>
