@@ -9,6 +9,44 @@
 <body>
     <h1>¡Adivina el número en tiempo récord!</h1>
     <h3>He pensado un número de 3 cifras</h3>
-    <button onclick="comienzo()">Comenzar</button> <br> <br> 
-    
+    <input type="text" id="inpnum">
+    <button id="boton" onclick="comienzo()">Comenzar</button> <br> <br> 
+        <p id="resultado"></p>
+
+    <script>
+    let numeroinicial = Math.floor((Math.random()*100)+1); 
+
+        let numero = 0;
+        function comienzo() {
+            let numero = parseInt(document.getElementById("inpnum").value);
+            let numeroadivinar = document.getElementById("numero").value;
+           
+            if(numero==numeroadivinar){
+                document.getElementById("parrafo").innerHTML= "Enhorabuena, acertaste el numero"
+            }
+            if(numero>numeroadivinar)   {
+                document.getElementById("parrafo").innerHTML= "Lo siento, el número que he pensado es mayor"
+            }
+            if(numero<0)    {
+                document.getElementById("parrafo").innerHTML = "Por favor ingrese un número que sea mayor que 0"
+            }
+            if(numero<numeroadivinar)   {
+
+            }
+        }
+
+
+        function cargaPagina()  {
+            numeroalmacenado = localStorage.getItem("numero");
+            if(numeroalmacenado!="")    {
+
+                document.getElementById("resultado").innerHTML="Enhorabuena, acertaste en " + setTimeout+ "segundos"
+            }
+        }
+
+
+
+
+
+    </script>
 </html>
