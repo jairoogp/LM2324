@@ -4,49 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adivina</title>
+    <style>
+        #botoncomprobar {
+            display:none;
+        }
+        #inpnum {
+            display:none;
+        }
+    </style>
     <script src=""></script>
 </head>
 <body>
     <h1>¡Adivina el número en tiempo récord!</h1>
     <h3>He pensado un número de 3 cifras</h3>
-    <input type="text" id="inpnum">
-    <button id="boton" onclick="comienzo()">Comenzar</button> <br> <br> 
-        <p id="resultado"></p>
-
+    <p id="secreto"></p>
+    <input type="text" id="inpnum" placeholder="Escriba un número">
+    <button id="botoncomenzar" onclick="comenzar()">Comenzar</button> <br> <br> 
+    <button id="botoncomprobar" onclick="comprobar()">Comprobar</button>
+    <p id="resultado"></p>
     <script>
-    let numeroinicial = Math.floor((Math.random()*100)+1); 
-
-        let numero = 0;
-        function comienzo() {
-            let numero = parseInt(document.getElementById("inpnum").value);
-            let numeroadivinar = document.getElementById("numero").value;
-           
-            if(numero==numeroadivinar){
-                document.getElementById("parrafo").innerHTML= "Enhorabuena, acertaste el numero"
-            }
-            if(numero>numeroadivinar)   {
-                document.getElementById("parrafo").innerHTML= "Lo siento, el número que he pensado es mayor"
-            }
-            if(numero<0)    {
-                document.getElementById("parrafo").innerHTML = "Por favor ingrese un número que sea mayor que 0"
-            }
-            if(numero<numeroadivinar)   {
-
-            }
+        var numeroAzar;
+        var inicio;
+        
+        function generarNumero()    {
+            numeroAzar = Math.ceil(Math.random()*9).toString() + Math.ceil(Math.random()*9).toString() + Math.ceil(Math.random()*9).toString()
+            document.getElementById("secreto").innerHTML = numeroAzar;
         }
 
 
-        function cargaPagina()  {
-            numeroalmacenado = localStorage.getItem("numero");
-            if(numeroalmacenado!="")    {
-
-                document.getElementById("resultado").innerHTML="Enhorabuena, acertaste en " + setTimeout+ "segundos"
+        function comenzar() {
+           inicio = new Date().getTime();
+           generarNumero();
+           document.getElementById("botoncomenzar").style.display= "none";
+           document.getElementById("botoncomprobar").style.display= "block";
+           document.getElementById("inpnum").style.display= "block";
+            var recordActual = window.localStorage.getItem("record");
+            if(recordActual!=null){
+                document.getElementById("secreto").innerHTML = "El record actual esta en " +recordActual+" segundos. <br>" + numeroAzar; 
+                document.getElementById("resultado").innerHTML="";
             }
+
+
         }
 
+        function comprobar()    {
+            let numero = document.getElementById("inpnum").value;
+            if(numero==numeroAzar)  {
+                let fin = new Date().getTime();
+                let diferencia = (fin-inicio)/1000;
+                document.getElementById("resultado").innerHTML = "Enhorabena, acertaste en " +diferencia+"segundos";
+                var record = window.localStorage.getItem("record");
+                if (record!=null){
+                    var recordReal = parseFloat(record);
+                
+                if(diferencia<recordReal)   {
+                    window.localStorage.setItem("record",diferencia.toString());
+                    document.getElementById("resultado").innerHTML += "¡Nuevo record!"
+                }
+            }
+            else    {
+                window.localStorage.setItem("record",diferencia.toString());
+                document.getElementById("resultado").innerHTML += "¡Nuevo record!";
+            }
+            document.getElementById("botoncomenzar").style.display = "block";
+            document.getElementById("botoncomprobar").style.display = "none";
+            document.getElementById("inpnum").style.display = "none";
+        }
+        else{
+            let i=0, coincidencias=0;
+            while(i<numeroAzar.length && i<numero.length)   {
+                if(numeroAzar[i]==numero[i])
+                coincidencias+=1;
+            i++;
+            }
+            document.getElementById("resultado").innerHTML += "Tu propuesta " +numero+"coincide en " +coincidencias+ "cifras<br>";
+        }
 
-
-
+    }
 
     </script>
 </html>
