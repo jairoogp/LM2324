@@ -24,6 +24,7 @@ function validar(elementos){
     }
     return estanCorrectos;
 }
+
 /* Función validarEmail tomada de:
 * https://www.coderbox.net/blog/validar-email-usando-javascript-y-expresiones-regulares/
 */
@@ -54,13 +55,13 @@ function validarDNI(){
     var numero = parseInt(cadena.substring(0,8)); // Parte numérica
     var letraUsuario = cadena[8]; // Letra escrita por el usuario
     var letraReal = letra[numero%23]; // Letra "real" del DNI calculada según "fórmula"
-    var dniValido =true;
+    var dniValido =true;    
     if (letraUsuario!=letraReal) // Si no coincide letras es falso
         dniValido = false;
     return dniValido;
 }
 
-function limpia()   {
+function limpia()   {   // esto es para que el dni no
     let cadena = document.getElementById("dni").value;
     let cadenaSinEspacios = cadena.replace(/ /g,"");
     let cadenaLimpia = cadenaSinEspacios.toUpperCase();

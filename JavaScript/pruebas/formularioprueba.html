@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de prueba (validar emails)</title>
+    <style>
+        input{
+            width: 100px;
+            padding: 1rem;
+            color: blue;
+        }
+        body    {
+            text-align: center;
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+       <label for="">Nombre:</label> <br><br>
+        <input type="text" id="nombre"   required> <span class="error" id="campo1"></span> <br><br><br>
+
+        <label for="">Email:</label> <br><br>
+        <input type="email" name="" id="email" class="error" required><span class="error" id="campo2"></span> <br><br><br>
+
+        <label for="">Password</label><br><br>
+        <input type="password" name="" id="contrasena" class="error" required><span class="error" id="campo3"></span> <br> <br><br>
+
+        <label for="">DNI</label> <br><br>
+        <input type="text" name="" id="dni" class="error" required><span class="error" id="campo4"></span> <br> <br><br>
+
+        <label for="">Acepta política privacidad</label><input id="verificacion" type="checkbox" value="off"><span class="error" id="campo5"></span><br>
+        
+        <button onclick="validar(document.getElementsByTagName('input'))"> Enviar formulario </button>
+
+    </form>
+
+    <script>
+        function validar (elementos) {
+            let estancorrectos = true;
+            for (var i=0;i<elementos.length;i++){
+                document.getElementById("campo" + (i+1).toString()).innerHTML="";
+                if(elementos[i].value=="" || (i==4 && !elementos[i].checked)) // si el campo esta vacio o si el campo es la casilla de verificacion y no esta marcada 
+                  {
+                    document.getElementById("campo"+(i+1).toString()).innerHTML = "El campo " + elementos[i].id + "esta vacio";
+                    estancorrectos = false;
+                }
+            }
+            if(!validaremail()) { // si no es valido el email(no cumple con los requisitos)
+                document.getElementById("campo2").innerHTML = "Email no válido";
+                estancorrectos = false ;
+            }
+            if(!validarpasswords()) { // si no es valido la contraseña(no cumple con los requisitos)
+                document.getElementById("campo3").innerHTML = "Contraseña  no válido";
+                estancorrectos = false ;
+            }
+            if(!validardni()) { // si no es valido la contraseña(no cumple con los requisitos)
+                document.getElementById("campo5").innerHTML = "Email no válido";
+                estancorrectos = false ;
+            }
+            return estancorrectos;
+        }
+
+
+        function validaremail() {
+            var valido;
+            var emailcampo = document.getElementById("email");
+            var validemail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+            if(validemail.test(emailcampo.value)){
+                valido=true;
+            }
+            else{
+                valido=false;
+            }
+            return valido;
+        }
+
+        function validarpasswords() {
+            let clave = document.getElementById("contrasena").value;
+            let passwordsok = true;  // si cumple con los requisitos adquiridos
+            if (clave.length<8){    // si la clave es menor que 8 caracteres
+                passwordsok = false; // devuelveme que es invalida
+            }
+            return passwordsok; //sino devuelveme que esta correcta
+        }
+        function validardni() {
+            var letra = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'];
+            var cadena = document.getElementById("dni").value;
+            var numero = parseInt(cadena.substring(0,8));
+            var letrausuario = cadena[8];
+            var letrareal = letra[numero%23];
+            var dnivalido = true;
+            if(letrausuario!=letrareal){
+                dnivalido = false;
+            }
+            return dnivalido;
+            
+        }
+
+        function limpia ()  { // esto es para que el dni no tenga espacios.
+            let cadena = document.getElementById("dni").value;
+            let cadenasinespacios = cadena.replace(/ /g,"");
+            let cadenalimpia = cadenasinespacios.toUpperCase();
+            document.getElementById("campo4").innerHTML= cadenalimpia;
+        }
+    </script>
+</body>
+</html>

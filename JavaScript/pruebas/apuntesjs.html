@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuntes</title>
+</head>
+<body>
+
+    <p>
+        parse();Acepta una cadena JSON como parametro y devuelve el objeto JavaScript correspondiente
+        stringify(): Acepta objeto como parametro y devuelve la cadena JSON correspondiente
+    </p>
+    
+   <p>
+ 
+
+   </p> 
+    
+    <div class="padre">
+        <p class="parrafos" id="parrafo1" >Párrafo 1</p>
+        <p class="parrafos" id="parrafo2" >Párrafo 2</p>
+        <p class="parrafos" id="parrafo3" >Párrafo 3</p>
+    </div>
+    <script>
+       const objeto = {nombre:"Oscar", edad:29};
+       const jsonString = JSON.stringify(objeto); // convierte a cadena de texto
+       const jsonObjeto = JSON.parse(jsonString); // convierte a objeto
+
+      const listadecompras = document.querySelector("ul")
+      const comida = ["Huevo", "mANZANA","Leche"]
+
+      for(let i=0;i<comida.length;i++){
+        const crearli = document.createElement("li");
+        crearli.textContent = comida[i]     // por donde vaya el bucle
+        listadecompras.appendChild(li);
+      }
+    </script>
+</body>
+</html>

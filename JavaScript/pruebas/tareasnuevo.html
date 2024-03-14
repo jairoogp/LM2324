@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacer tareas
+    </title>
+</head>
+<body>
+    <h1>Tareas pendientes por hacer</h1>
+    <ul id="lista"></ul>
+    <input id="tarea" type="text" placeholder="AÑADE UNA TAREA A LA LISTA">
+    <button onclick="anadir()">Añadir</button>
+
+    <script>
+        var problemas = []; // array que en principio esta vacio, aqui se añaderan lo que añadamos en el input
+        function anadir ()  {
+
+        var tarea = document.getElementById("tarea").value;
+        var lista = document.getElementById("lista");
+        var elemento = document.createElement("li") // creamos un elemento de tipo lista
+        elemento.textContent = tarea;
+        lista.appendChild(elemento);
+        problemas.push(elemento);
+        var cadena = "";
+        for(var i=0;i<problemas.length;i++){
+            cadena = cadena + problemas[i].textContent + "," // le añado a la cadena la concatenacion del contenido problemas[i].textcontent (el texto del elemento en la posicion [i] del array problemas)
+        }
+        localStorage.setItem("problemas",cadena);
+    }
+
+        function cargaPagina()  {
+            let cadenatareas = localStorage.getItem("problemas");
+            if(cadenatareas!=null)  { // si cadenatareas!=null , hay datos almacenados en el local storage     // si es null, no hay datos almacenados y no se realiza ninguna acción adicional
+                var lista = document.getElementById("lista");
+            var elemento = document.createElement("li");
+            elemento.textContent = cadenatareas;
+            lista.appendChild(elemento);
+            }
+            else{
+                // no tengo nada que mostrar
+            }
+        }
+    window.onload=cargaPagina();
+    </script>
+</body>
+</html>
