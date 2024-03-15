@@ -31,7 +31,7 @@ var r = 0.0
 function mediaCalificacion ()   {
     r = 0.0;
     for (var i=0; i<calificaciones.length;i++)  {
-        r += calificaciones[i] ; // es lo mismo que poner r = r + calificaciones[i]
+        r += calificaciones[i] ;
     }
     var media = r / calificaciones.length;
     document.getElementById("resultado").innerHTML = ("El resultado de la media es ") + media.toFixed(2) ; // to fixed es para que solo me salgan 2 decimales en el resultado

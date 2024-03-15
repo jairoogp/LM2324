@@ -55,7 +55,7 @@
                 document.getElementById("campo3").innerHTML = "Contraseña  no válido";
                 estancorrectos = false ;
             }
-            if(!validardni()) { // si no es valido la contraseña(no cumple con los requisitos)
+            if(!validardni()) { // si no es valido el dni(no cumple con los requisitos)
                 document.getElementById("campo4").innerHTML = "DNI no válido";
                 estancorrectos = false ;
             }
@@ -91,10 +91,12 @@
             var letrausuario = cadena[8]; //letra escrita por usuario
             var letrareal = letra[numero%23];  // letra real del dni calculada segun la formula 
             var dnivalido = true;
-            if(letrausuario!=letrareal){ // si no coincide la letra es falso
+            if(letrausuario!=letrareal){
                 dnivalido = false;
-            }
-            return dnivalido;
+            } // si no coincide la letra es falso
+                return dnivalido;       /*if(numero.length<8 && letrausuario==null)   {
+                dnivalido=false;
+            }*/
             
         }
 
@@ -102,7 +104,7 @@
             let cadena = document.getElementById("dni").value;
             let cadenasinespacios = cadena.replace(/ /g,"");
             let cadenalimpia = cadenasinespacios.toUpperCase();
-            document.getElementById("campo4").innerHTML= cadenalimpia;
+            document.getElementById("dni").value= cadenalimpia;
         }
     </script>
 </body>

@@ -14,7 +14,7 @@
     <script>
         
         function cargaPagina()  {
-         let tema=localStorage.getItem("tema");
+         let tema=localStorage.getItem("temita");
             if(tema=="oscuro")
             colorOscuro();
             else
@@ -35,7 +35,7 @@
             guardartema("oscuro");
         }
         function guardartema(tema)  {
-            localStorage.setItem("tema",tema);
+            localStorage.setItem("temita",tema);
         }
         
         window.onload=cargaPagina();
