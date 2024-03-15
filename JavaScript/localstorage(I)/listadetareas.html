@@ -14,17 +14,17 @@
     <script>
         var problemas =[]; // array q en principio esta vacio
         function anadirElemento()   {
-            var tarea = document.getElementById("tarea").value
-            var lista = document.getElementById("lista");
-            var elemento = document.createElement("li");
-            elemento.textContent = tarea;
+            var tarea = document.getElementById("tarea").value; //creo una variable tarea que cogera lo que pongamos en input
+            var lista = document.getElementById("lista"); // creo otra variable de lista
+            var elemento = document.createElement("li"); // creo otra variable para crear "li"
+            elemento.textContent = tarea; // el contenido del texto será la cadena tarea(lo q escribamos en el input)
             lista.appendChild(elemento);
             problemas.push(elemento);
             var cadena ="";
             for(var i=0; i<problemas.length;i++)    {
                 cadena = cadena + problemas[i].textContent + ",";       // conseguir UNA CADENA UNA CADENA UNA CADENA UNA CADENA
             }
-            // al finalizar el bucle en cadena tengo mi lista de tarea
+            // al finalizar el bucle en cadena tengo mi lista de tarea (cadena = cadena + problemas[i].textContent + ",";)
             localStorage.setItem("problemas",cadena);   
         }
 

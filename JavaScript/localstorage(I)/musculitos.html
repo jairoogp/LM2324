@@ -18,7 +18,10 @@
         function guardar()  {
            let pesoActual= document.getElementById("pesoActual").value;
 
-           if(pesoActual!="")   {
+           /*  !=null solo verifica si la variable no es nula, independientemente de su contenido.
+    !="" verifica si la cadena no está vacía, pero no verifica si la variable es nula.*/
+    
+           if(pesoActual!="")   { // si pesoactual contiene algun valor, la condicion sera verdadera 
             localStorage.setItem("peso",pesoActual)
            }
            if(pesoActual>pesoAnterior){

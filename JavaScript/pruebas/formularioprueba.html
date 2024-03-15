@@ -41,7 +41,7 @@
             let estancorrectos = true;
             for (var i=0;i<elementos.length;i++){
                 document.getElementById("campo" + (i+1).toString()).innerHTML="";
-                if(elementos[i].value=="" || (i==4 && !elementos[i].checked)) // si el campo esta vacio o si el campo es la casilla de verificacion y no esta marcada 
+                if(elementos[i].value=="" || (i==5 && !elementos[i].checked)) // si el campo esta vacio o si el campo es la casilla de verificacion y no esta marcada 
                   {
                     document.getElementById("campo"+(i+1).toString()).innerHTML = "El campo " + elementos[i].id + "esta vacio";
                     estancorrectos = false;
@@ -56,7 +56,7 @@
                 estancorrectos = false ;
             }
             if(!validardni()) { // si no es valido la contraseña(no cumple con los requisitos)
-                document.getElementById("campo5").innerHTML = "Email no válido";
+                document.getElementById("campo4").innerHTML = "DNI no válido";
                 estancorrectos = false ;
             }
             return estancorrectos;
@@ -86,12 +86,12 @@
         }
         function validardni() {
             var letra = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'];
-            var cadena = document.getElementById("dni").value;
-            var numero = parseInt(cadena.substring(0,8));
-            var letrausuario = cadena[8];
-            var letrareal = letra[numero%23];
+            var cadena = document.getElementById("dni").value; //dni completo
+            var numero = parseInt(cadena.substring(0,8)); //parte numerico
+            var letrausuario = cadena[8]; //letra escrita por usuario
+            var letrareal = letra[numero%23];  // letra real del dni calculada segun la formula 
             var dnivalido = true;
-            if(letrausuario!=letrareal){
+            if(letrausuario!=letrareal){ // si no coincide la letra es falso
                 dnivalido = false;
             }
             return dnivalido;
