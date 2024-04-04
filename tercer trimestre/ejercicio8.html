@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variadito</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Encabezado</h1>
+    <p>Lorem ipsum dolor sit, amet <a href="http://www.marca.com." target="_blank">adipisicing</a>  elit. Modi alias quaerat error incidunt dolores minus libero iure impedit iusto dicta asperiores quibusdam non, culpa maxime aspernatur magni explicabo? Ullam, neque.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi alias quaerat error incidunt dolores minus libero iure impedit iusto dicta asperiores quibusdam non, culpa maxime aspernatur magni explicabo? Ullam, neque.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi alias quaerat error incidunt dolores minus libero iure impedit iusto dicta asperiores quibusdam non, culpa maxime aspernatur magni explicabo? Ullam, neque.</p>
+    <button id="boton1">Obtener html del encabezado</button>
+    <button id="boton2">Obtener src de la imagen</button>
+    <button id="boton3">Obtener html de un parrafo</button>
+    <script>
+        $(document).ready(function()    {
+            $("#boton1").click(function(){
+                alert("El HTML del encabezado es :"+$("h1").html());
+            })
+
+            $("#boton2").click(function(){
+                alert("El src de la imagen es :"+$("img").attr("src"));
+            })
+
+            $("#boton3").click(function(){
+                alert("El HTML del parrafp es :"+$("p").html());
+            })
+        });
+    </script>
+</body>
+</html>

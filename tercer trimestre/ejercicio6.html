@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Encabezado1</h1>
+    <h1>Encabezado1</h1>
+    <h2>Encabezado2</h2>
+    <p>Lorem, ipsum dolor <a href="">sit</a> amet consectetur <a href="">adipisicing</a> adipisicing elit. Rem laboriosam molestias libero minima similique iusto unde amet et perferendis placeat, sequi eveniet fugiat excepturi doloremque quam eos quas reiciendis voluptatum?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem laboriosam molestias libero minima similique iusto unde amet et perferendis placeat, sequi eveniet fugiat excepturi doloremque quam eos quas reiciendis voluptatum?</p>
+    <img src="/imagenes/planta.jpg" alt="Es una foto">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem laboriosam molestias libero minima similique iusto unde amet et perferendis placeat, sequi eveniet fugiat excepturi doloremque quam eos quas reiciendis voluptatum?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem laboriosam molestias libero minima similique iusto unde amet et perferendis placeat, sequi eveniet fugiat excepturi doloremque quam eos quas reiciendis voluptatum?</p>
+    <table>
+        <tr>
+            <th>Encabezados</th>
+            <th>Parrafos</th>
+            <th>Enlaces</th>
+            <th>Imágenes</th>
+        </tr>
+        <tr>
+            <td id="enc"></td>
+            <td id="par"></td>
+            <td id="enl"></td>
+            <td id="img"></td>
+        </tr>
+    </table>
+<script>
+    $(document).ready(function()    {
+        $("#enc").html(
+            $("h1,h2").length
+        );
+        $("#par").html(
+            $("p").length
+        );
+        $("#enl").html(
+            $("a").length
+        );
+        $("#img").html(
+            $("img").length
+        );
+    })
+</script>
+</body>
+
+</html>
