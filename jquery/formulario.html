@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar formulario con JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        input{
+            margin: 10px 10px;
+            outline-color: blue;
+            border-color: blueviolet;
+            width: 200px;
+            height: 50px;
+        }
+
+        span {
+            color:darkmagenta;            
+        }
+        body{
+            background-color: blanchedalmond;
+
+        }
+
+        button{
+            background-color: darkolivegreen;
+            color: bisque;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" placeholder="Nombre" id="nombre" required> <span id="errorNombre"></span> <br>
+        <input type="text" placeholder="Apellidos" id="apellidos" required><span id="errorApellidos"></span><br>
+        <input type="email"  id="correo" placeholder="Email" required><span id="errorCorreo"></span><br>
+        <input type="date"  id="fnac" placeholder="Fecha de nacimiento"><br>
+        <input type="text" name="" id="dni" placeholder="DNI :12345678X" required><br>
+        <input type="password" id="password1" placeholder="Contraseña" required><span id="errorContra1"></span><br>
+        <input type="password" id="password2" placeholder="Repita la contraseña" required><span id="errorContra2"></span><br>
+        <input type="checkbox" id="privacidad" required> <label for="">Acepta la politica de privacidad</label><span id="errorPrivacidad"></span><br>
+        <button>Registrarse</button>
+    </form>
+
+        <script>
+            $(document).ready(function () {
+                    $("button").click(function()    {
+                        let patronEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
+                        let patronContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+                        let nombre = $("#nombre").val(); // el val obtiene el valor de la caja de texto
+                        let apellido =$("#apellidos").val();
+                        let correo =$("#correo").val();
+                        let fecha = $("#fnac").val();
+                        let contra1 =$("password1").val();
+                        let contra2 =$("password2").val();
+                        let privacidad =$("#privacidad").is(":checked");
+                        if(nombre=="")  {       // si el nombr esta vacio 
+                        $("#errorNombre").text("Rellenar el campo nombre");
+                        }
+                        else{
+                            $("#errorNombre").text(""); // lo pongo vacio 
+                        }
+                        if(apellido=="")    {
+                            $("#errorApellidos").text("Rellenar el campo apellidos");
+                        }
+                        else{
+                            $("#errorApellidos").text("");
+                        }
+                        if(correo=="")  {
+                            $("#errorCorreo").text("Rellenar correo electronico : algo@algo.com");                            
+                        }
+                        else{
+                            // el correo no es la cadena vacia, pero no sabemos todavia si es valido o no el correo
+                            if(!patronEmail.test(correo))   {   // si no encaja con el patron de email 
+                                $("#errorCorreo").text("Formato no válido de correo");
+                            }
+                            else{
+                              $("#errorCorreo").text("");
+                            }
+                        }
+
+                        if(contra1!=contra2)    {
+                            $("#errorContra1").text("Las contraseñas deben coincidir");
+                            $("#errorContra2").text("Las contraseñas deben coincidir");
+                        }
+                        else{       // las contraseñas son iguales
+                            if(!patronContrasena.test(contra1))  { // da igual poner contra1 o contra2 ya que las 2 son las mismas y da igual poner una que otra
+                            $("#errorContra1").text("Mínimo 8 caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial:");
+                            $("#errorContra2").text("Mínimo 8 caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial:");
+                            }
+                            else{
+                                $("#errorContra1").text("");
+                                $("#errorContra2").text("");
+                            }
+                        }
+                        if(!privacidad)  { // Si no has marcado privacidad 
+                            $("errorPrivacidad").text("Debe aceptar la politica de privacidad");
+                        }   
+                        else{
+                            $("errorPrivacidad").text("");
+                        }
+
+                    })
+            });
+        </script>
+</body>
+</html>
