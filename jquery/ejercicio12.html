@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionamiento de JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis gravida turpis, id iaculis libero sollicitudin vel. Etiam gravida justo sit amet ipsum tincidunt, sed rutrum ante pulvinar. Sed eget quam nec risus consequat faucibus. Aliquam id dui placerat, consequat mauris non, efficitur erat. Curabitur ullamcorper a quam sed luctus. Sed quis tempus elit. Aenean tincidunt, lacus ut condimentum vehicula, nunc leo elementum odio, a vehicula metus urna eu massa. Suspendisse a iaculis quam. Curabitur lacinia, ligula facilisis congue volutpat, diam felis rutrum quam, et facilisis ante massa sed risus.
+
+    </div>
+    <button>Mostrar/Ocultar</button>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function(){
+                $("div").toggle();
+            })
+        });
+    </script>
+</body>
+</html>
