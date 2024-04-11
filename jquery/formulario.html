@@ -35,8 +35,8 @@
         <input type="text" placeholder="Nombre" id="nombre" required> <span id="errorNombre"></span> <br>
         <input type="text" placeholder="Apellidos" id="apellidos" required><span id="errorApellidos"></span><br>
         <input type="email"  id="correo" placeholder="Email" required><span id="errorCorreo"></span><br>
-        <input type="date"  id="fnac" placeholder="Fecha de nacimiento"><br>
-        <input type="text" name="" id="dni" placeholder="DNI :12345678X" required><br>
+        <input type="date"  id="fnac" placeholder="Fecha de nacimiento" required><span id="errorFecha"></span><br>
+        <input type="text" name="" id="dni" placeholder="DNI :12345678X" required><span id="errorDni"></span><br>
         <input type="password" id="password1" placeholder="Contraseña" required><span id="errorContra1"></span><br>
         <input type="password" id="password2" placeholder="Repita la contraseña" required><span id="errorContra2"></span><br>
         <input type="checkbox" id="privacidad" required> <label for="">Acepta la politica de privacidad</label><span id="errorPrivacidad"></span><br>
@@ -48,6 +48,7 @@
                     $("button").click(function()    {
                         let patronEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
                         let patronContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+                        let patronDni = /^\d{8}[a-zA-Z]$/;
                         let nombre = $("#nombre").val(); // el val obtiene el valor de la caja de texto
                         let apellido =$("#apellidos").val();
                         let correo =$("#correo").val();
@@ -55,6 +56,8 @@
                         let contra1 =$("password1").val();
                         let contra2 =$("password2").val();
                         let privacidad =$("#privacidad").is(":checked");
+                        let dni = $("#dni").val();
+            
                         if(nombre=="")  {       // si el nombr esta vacio 
                         $("#errorNombre").text("Rellenar el campo nombre");
                         }
@@ -95,10 +98,32 @@
                             }
                         }
                         if(!privacidad)  { // Si no has marcado privacidad 
-                            $("errorPrivacidad").text("Debe aceptar la politica de privacidad");
+                            $("#errorPrivacidad").text("Debe aceptar la politica de privacidad");
                         }   
                         else{
-                            $("errorPrivacidad").text("");
+                            $("#errorPrivacidad").text("");
+                        }
+                        if(dni=="") {
+                            $("#errorDni").text("El DNI tiene que cumplir con los siguientes requisitos: 12345678X");
+                        }
+                        else{
+                            if(!patronDni.test(dni)){   // si no encaja con el formato valido del DNI, entonces:
+                                $("#errorDni").text("Formato no válido de DNI");
+                            }
+                            else{
+                                $("#errorDni").text("");
+                            }
+                        }
+                        if(fecha=="")   {
+                            $("#errorFecha").text("Debes de indicar tu fecha de nacimiento");
+                        }
+                        else{
+                            if(fecha<"10/04/2006")  {
+                                $("#errorFecha").text("Debes ser mayor de edad");        
+                            }
+                            else{
+                                $("#errorFecha").text("");
+                            }
                         }
 
                     })
