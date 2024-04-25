@@ -17,11 +17,12 @@
     <script>
         /* Completar el código jQuery aquí */
         $(document).ready(function () {
-          $.get("ejemplo.json",function(datos){
-            console.log(datos);
+          $.get("ejemplo.json").done(function(datos){ // si tiene exito el get, se ejecutara el done (function(Datos))
+                                                      // si no tiene exito mi ejecucio ejecuto lo que estara en el fail
+            console.log(datos["Mensaje"]);
           })
           .fail(function()  {
-            console.error("Error, la solicitud al servidor ha fallado.")
+            console.log("El archivo no se encuentra en el servidor");
           })
         });
     </script>

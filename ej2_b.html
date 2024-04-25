@@ -16,8 +16,8 @@
     <script>
         /* Completar el código jQuery aquí */
         $(document).ready(function () {
-          $.get("https://jsonip.com", function(calcular){
-            $("#objetivo").getJSON();
+          $.get("https://jsonip.com").done (function(calcular){
+            $("#objetivo").text(calcular['ip']);
           })
         });
         
