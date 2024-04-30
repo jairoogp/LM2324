@@ -37,7 +37,7 @@
             </div>
             <div class="card-body">
                 <div class='usuario'>
-                    <img src='' class='circle'>
+                    <img src='multiple.png' class='circle'>
                     <p class='fullname'></p>
                     <p class='username'></p>
                     <p class='email'></p>
@@ -53,16 +53,58 @@
     </div>
     <script>
         $(document).ready(function () {
-                        $.ajax({
+            $("#btn-generico").click(function(){
+                $.ajax({
             url: 'https://randomuser.me/api/',
             dataType: 'json',
             success: function(data) {
-               $(".fullname").text(data.name);
-               $(".username").text(data.username);
-               $(".email").text(data.email);
-               $(".city").text(data.city);
+                let datos = data.results[0];
+               $(".circle").attr("src",datos.picture.medium);
+               $(".fullname").text(datos.name.first+ " " + datos.name.last);
+               $(".username").text(datos.login.username);
+               $(".email").text(datos.email);
+               $(".city").text(datos.location.city);
             }
             });
+            });    
+
+
+            $("#btn-espanol").click(function(){
+                $.ajax({
+            url: 'https://randomuser.me/api/?nat=es',
+            dataType: 'json',
+            success: function(data) {
+                let datos = data.results[0];
+               $(".circle").attr("src",datos.picture.medium);
+               $(".fullname").text(datos.name.first+ " " + datos.name.last);
+               $(".username").text(datos.login.username);
+               $(".email").text(datos.email);
+               $(".city").text(datos.location.city);
+            }
+            });
+            });    
+
+            $("#btn-varios").click(function(){
+                $.ajax({
+            url: 'https://randomuser.me/api/?nat=es&results=5',
+            dataType: 'json',
+            success: function(data) {
+                let datos = data.results[0];
+               $(".circle").attr("src");
+               $(".fullname").text(datos.name.first+ " " + datos.name.last);
+               $(".username").text(datos.login.username);
+               $(".email").text(datos.email);
+               $(".city").text(datos.location.city);
+            }
+            });
+            });    
+
+
+
+
+
+
+
       
         });
     
