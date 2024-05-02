@@ -95,6 +95,13 @@
                $(".username").text(datos.login.username);
                $(".email").text(datos.email);
                $(".city").text(datos.location.city);
+
+
+               for (var i=0;i<datos.results.length;i++) {
+                let nombre = datos.results[i].name.first + " " +datos.results[i].name.last;
+                $("#fullname").append(nombre + "<br>")
+                let username =
+               }
             }
             });
             });    
