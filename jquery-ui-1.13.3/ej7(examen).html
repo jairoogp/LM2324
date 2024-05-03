@@ -12,6 +12,18 @@
 <body>
     <h1>Ejemplo de datapicker en español</h1>
     <input type="text" id="datepicker">
+    <script>
+        // funcion para deshabilitar los miercoles
+        function deshabilitarMiercoles(date){
+            // el dia de la semana 3 es el miercoles
+            return[date.getDay()!==3]
+        }
+
+        function deshabilitarMartesYJueves(date){
+            // el dia de la semana 3 es el miercoles
+            return[date.getDay()!==2 && date.getDay() !==4]; 
+        }
+    </script>
 
     <script>
         $.datepicker.regional['es'] = {
@@ -34,7 +46,7 @@
         $.datepicker.setDefaults($.datepicker.regional['es']);
        $(function () {
        $("#datepicker").datepicker(
-        {minDate:"+1D", maxDate:"+1W +1D"} // A partir del dia de mañana y como maximo una semana y un dia más 
+        {minDate:"+1D", maxDate:"+1W +1D",beforeShowDay:deshabilitarMartesYJueves} // A partir del dia de mañana y como maximo una semana y un dia más 
         );
        });
        </script>
