@@ -81,11 +81,14 @@
                     $("#resultados").append("<p>" +respuesta.tittle+"</p>")
                     $("#resultados").append("<p>" +respuesta.authors[0].name+"</p>")
                     $("#resultados").append("<img src='"+respuesta.formats('image/jpeg')+"'>");
+                    $("#resultados").append("<p><a href='" + respuesta.formats["text/plain; charset=utf-8"] + "' target='_blank'>Descargar TXT</a></p>");
 
-                .fail(function(){})
-                }
+                .fail(function(){
+                    $("#resultados").text("No se encontró ningún lirbo con ese código");
+                })
                 
-            });
+                
+            }});
             $("#btn-todos").click(function(){
 
             })
