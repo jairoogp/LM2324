@@ -14,13 +14,11 @@
     <p id="objetivo"></p>
     <script>
         $(document).ready(function () {
-
      $("button").click(function(){
             let dolares = parseFloat($("#dolares").val());  //obtengo los dolares
             let url = "https://v6.exchangerate-api.com/v6/f570506d2309e07805d4432e/latest/USD"
-
             $.get(url).done(function(datos) {
-                                                                                    // console.log(datos.conersion_rate.EUR); esta opcion tambien vale pero mejor poner un parrafo para quedar mas bonito
+                                                // console.log(datos.conersion_rate.EUR); esta opcion tambien vale pero mejor poner un parrafo para quedar mas bonito
                 let factorConversion = parseFloat(datos.conversion_rates.EUR) ;
                 let euros = dolares * factorConversion;
                 $("#objetivo").text("La cantidad es de " +euros + " €.");
