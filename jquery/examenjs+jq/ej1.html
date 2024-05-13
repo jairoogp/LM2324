@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        input, textarea, button {
+            margin: 15px 20px;
+            width: 200px;
+            height: 50px;
+        }
+        span {
+            color:red;
+        }
+        #errorPrivacidad    {
+            color : black
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" placeholder="Nombre" id="nombre" required><span id="errorNombre"></span><br>
+    <input type="text" placeholder="Apellido1" id="apellido1" required><span id="errorApellido1"></span><br>
+    <input type="text" placeholder="Apellido2" id="apellido2" required><span id="errorApellido2"></span><br>
+    <input type="email" placeholder="Email" id="email" required><span id="errorEmail"></span><br>
+    <input type="password" placeholder="Contraseña" id="contrasena1" required><span id="errorContrasena1"></span><br>
+    <input type="password" placeholder="Repita su contraseña" id="contrasena2" required><span id="errorContrasena2"></span><br>
+    <textarea id="descripcion" placeholder="Descripción"></textarea><span id="errorDescripcion"></span><br>
+    <input type="date" placeholder="Fecha de nacimiento" id="fechanacimiento" ><span id="errorFechanacimiento"></span><br>
+    <input type="checkbox" name="" id="verificacion" required>><span id="errorPrivacidad"> Acepta el tratamiento
+        de datos personales por parte de nuestro sitio web antes de enviar los datos.</span><br>
+
+    <button>Enviar</button>
+
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () { 
+                let patronEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+                let patronContrasena = /^.{8,}$/;
+                let patronDni = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
+                let nombre = $("#nombre").val();
+                let apellido1 = $("#apellido1").val();
+                let apellido2 = $("#apellido2").val();
+                let email = $("#email").val();
+                let contra1 = $("#contrasena1").val();
+                let contra2 = $("#contrasena2").val();
+                let verificacion = $("#verificacion").is(":checked");
+
+
+                if(nombre=="")  {
+                    $("#errorNombre").text("El campo nombre es necesario para completar el formulario")
+                }
+                if(apellido1=="")   {
+                    $("#errorApellido1").text("El campo apellido1 es necesario para completar el formulario")
+                }
+                if(apellido2=="")   {
+                    $("#errorApellido2").text("El campo apellido2 es necesario para completar el formulario")
+                }
+                if(email=="")   {
+                    $("#errorEmail").text("El campo email es necesario para completar el formulario. algo@algo.com ")
+                }
+                else{
+                    if (!patronEmail.test(email)){
+                        $("#errorEmail").text("Formato no válido de correo");
+                    }
+                    else{
+                        $("#errorEmail").text("");
+                    }
+                }
+                if (contra1!=contra2){
+                    $("#errorContra1").text("Las contraseñas deben coincidir");
+                    $("#errorContra2").text("Las contraseñas deben coincidir");
+                }
+                else{
+                    if (!patronContrasena.test(contra1)){
+                        $("#errorContrasena1").text("No cumple con requisitos. Longitud minima 8, incluir mayuscula, minuscula y digito");
+                        $("#errorContrasena2").text("No cumple con requisitos. Longitud minima 8, incluir mayuscula, minuscula y digito");
+                    }
+                    else{
+                        $("#errorContrasena1").text("");
+                        $("#errorContrasena2").text("");
+                    }
+                }
+        
+            });
+        });
+    </script>
+
+
+    
+</body>
+</html>

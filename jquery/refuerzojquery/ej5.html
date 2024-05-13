@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar fotos aleatorias</title>
+    <title>Mostrar libros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Mostrando fotos aleatorias utilizando la API Unsplash</h1>
+    <h1>Buscar y mostrar libros de Google Books </h1>
         <button id="boton">Mostrar</button>
         <p id="objetivo"></p>
 
     
 
     <script>
-            let url = "https://api.unsplash.com/photos/random?client_id=RkudraAZ4YF43qnfnibecbbLHOT_1WAa2RG8-Kao2gk"
+            let url = 
         $(document).ready(function () {
             $("#boton").click(function(){
                 $("#objetivo").empty();
             $.get(url).done(function(datos){
-                let foto = datos.urls.small
-                $("#objetivo").append('<p>' + '<img src="' + foto + '"></p>');
+               
+                
             });
         
             })
