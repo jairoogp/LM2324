@@ -9,13 +9,14 @@
 </head>
 <body>
     <h1>Buscar y mostrar libros de Google Books </h1>
+    <input type="text" id="texto">
         <button id="boton">Mostrar</button>
         <p id="objetivo"></p>
 
     
 
     <script>
-            let url = 
+            let url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=75a1aa78cd9393e7f0f7ec5739a6c114&text=" +texto+ "&format=json&nojsoncallback=1" 
         $(document).ready(function () {
             $("#boton").click(function(){
                 $("#objetivo").empty();
