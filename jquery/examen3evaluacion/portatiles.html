@@ -77,7 +77,7 @@
                 <label for="checkbox-2">Carrito 2</label>
                 <input class="carrito" type="checkbox" name="opciones" id="checkbox-2">
                 <label for="checkbox-3">Carrito 3</label>
-                <input class="carrito" type="checkbox" name="opciones" id="checkbox-1">
+                <input class="carrito" type="checkbox" name="opciones" id="checkbox-3">
                 <label for="checkbox-4">Carrito 4</label>
                 <input class="carrito" type="checkbox" name="opciones" id="checkbox-4">
                 <label for="checkbox-5">Carrito 5</label>
@@ -106,13 +106,6 @@
         </form>
     </div>
     <script>
-        function deshabilitarFinde(date)    {
-            return[date.getDay()!==6 && date.getDay()!==7];
-        }
-    </script>
-
-
-    <script>
                 $.datepicker.regional['es'] = {
                 closeText: 'Cerrar',
                 prevText: '<Ant',
@@ -132,30 +125,45 @@
         };
 
         $.datepicker.setDefaults($.datepicker.regional['es']);
-
+//fin del datapicker 
 
         $(document).ready(function () {
             $("#fecha").datepicker({
-                minDate : "+4D", maxDate : "+2W +1D" , beforeShowDay:deshabilitarFinde
+                minDate : "+1D", maxDate : "+2W +1D" , beforeShowDay:$.datepicker.noWeekends
             });
-        });
+        });             //definimos la funcion del datapicker para que no coja los fines de semana 
 
+      /* ESTO NO ES OBLIGATORIO PONERLO 
+        $( function() {
+                $(".carrito").checkboxradio();
+            } );
+*/
 
-        $("#reserva").click(function(){
-            event.preventDefault();
-            $("#diaReserva").empty();
+        $("#reserva").click(function(e){ // al hacer click en la funcion,
+            e.preventDefault();
+            var checkbox = $(".carrito");
+            var carritos = 0;  // SE PONE A 0 porque se va a usar en el buvcle
+           var dia = $("#fecha").val(); // coge el valor de la fecha
+           var hora = $("#hora").val(); // coge el valor de la hora
+
+           if(dia!=""){     //si en el dia hay algo
+            for (var i=0;i<checkbox.length;i++){ 
+                if(checkbox[i].checked==true){      //  si en la posicion [i], esta marcado, 
+                    carritos += 1;                  //entonces se incrementa un carrito . Es lo mismo que poner carritos = carritos + 1 
+                }
+            }
+            var portatiles = carritos * 15; // carritos será 1,2,3,4,5 segun los carritos que esten marcados.
             $("#totalPortatiles").empty();
+            $("#totalPortatiles").text("Nº Portatiles:");
+            $("#totalPortatiles").append(portatiles); //para añadir los portatiles a ese id "totalPortatiles"
+            $("#diaReserva").text("Reserva el "+dia+" de " + hora + " horas");
+           }
 
-            if($("#fecha").val() == ""){
-                alert("¡Error! Debe seleccionar una fecha de reserva")
-            }
+           else{
+            $("#diaReserva").empty();
+            $("#diaReserva").append("Debes seleccionar una fecha");
 
-            else {
-
-            }
-
-
-
+           }
 
 
 
