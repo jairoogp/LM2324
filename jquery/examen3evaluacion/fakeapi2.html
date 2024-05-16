@@ -91,41 +91,43 @@
 
     <script>
         $(document).ready(function () {
-            var categorias = ["electronics","jewelery","men´s clothing","women´s clothing"];
+            var categorias = ["electronics","jewelery","men's clothing","women's clothing"];
             $("#categoria").autocomplete({
                 source : categorias
             })
         });
 
         $(document).ready(function () {
-            ("#btn-todos").click(function(){
+            $("#btn-todos").click(function(e){
+                e.preventDefault();
                 $.ajax({
-                    url:"'https://fakestoreapi.com/products",
+                    url:"https://fakestoreapi.com/products",
                     dataType:'json',
 
                     success:function(datos){
                         console.log(datos);
                         var categoria = $("#categoria").val();
+                        $("#resultados").empty();
                         for(var i = 0;i<datos.length;i++){
                             if(datos[i].category==categoria){
 
-                        var contenedor = $("<div id ='contenedor' width='200px'></div>"+"<br>")
-                        $("#resultados").append("<img src ="+datos[i].image+"></img>"+"<br>")
-                        $("#resultados").append("Título: " +datos[i].title + "<br>")
-                        $("#resultados").append("Categoría: " +datos[i].category + "<br>")
-                        $("#resultados").append("Precio: " +datos[i].price + "<br>")
-                        $("#resultados").append("Puntuación: " +datos[i].rating.rate + "<br>")
-                        $("#resultados").append("Descripción: " +datos[i].description + "<br>")
+                        var contenedor = $("<div id ='contenedor'></div>")
+                        contenedor.append("<img src ="+datos[i].image+"></img>"+"<br>") // con el append se añaden cosas, lo q quieras
+                        contenedor.append("Título: " +datos[i].title + "<br>")
+                        contenedor.append("Categoría: " +datos[i].category + "<br>")
+                        contenedor.append("Precio: " +datos[i].price + "<br>")
+                        contenedor.append("Puntuación: " +datos[i].rating.rate + "<br>")
+                        contenedor.append("Descripción: " +datos[i].description + "<br>")
                         $("#resultados").append(contenedor);
 
-}
+                            }
                         }
                     },
                     error:function(){
                         $("#resultados").text("Se ha producido un error al intentar conectarse con el servidor")
                     }
-                })
-            })
+                });
+            });
         });
     </script>
 </body>
