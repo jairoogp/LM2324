@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma pares</title>
+</head>
+<body>
+    <h1>Introduzca un numero entero positivo</h1>
+    <input type="number" id="numero">
+
+    <button onclick="anadir()">Añadir al array</button>
+    <button onclick="sumar()">Sumar Pares</button>
+
+    <p id="mostrar"></p>
+
+    <script>
+        var numeros = [];
+
+        function anadir (){
+            var numero = parseInt(document.getElementById("numero").value); //uso parse Int porque sino a la hora de su
+            if(numero>=0){
+                numeros.push(numero);
+                document.getElementById("mostrar").innerHTML = numeros;
+                }
+            else{
+                document.getElementById("mostrar").innerHTML = "Este número no es positivo"
+            }
+        }
+
+        function sumar (){
+            var s = 0;                  // iniciamos la variable a 0
+            for(var i= 0; i< numeros.length;i++){
+                if(numeros[i]%2==0)         // si los numeros del bucle se dividen entre 2 y da 0, entonces:
+                s += numeros[i];            // es lo mismo que poner s = s + numeros[i]
+            }
+            
+            document.getElementById("mostrar").innerHTML ="Sumando todos los pares quedaría el resultado : " + s;
+        }
+    </script>
+</body>
+</html>

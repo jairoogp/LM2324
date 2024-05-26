@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Distancias
+    </title>
+</head>
+<body>
+    <h1>Distancias</h1>
+    <input type="text" id="distancia" placeholder="100,200,150">
+
+    <button onclick="calcular()">Calcular</button>
+    <p id="mostrar"></p>
+
+    <script>
+        function calcular(){
+            let numeros = document.getElementById("distancia").value;
+            const myArray = numeros.split(",");
+            var s = 0;          // cada vez que le doy al boton
+            for(var i = 0; i< myArray.length;i++){
+                s+= parseFloat(myArray[i]);
+            }
+            document.getElementById("mostrar").innerHTML = "La distancia es " +s;
+        }
+        </script>
+</body>
+</html>

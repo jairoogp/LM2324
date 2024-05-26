@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor elemento</title>
+</head>
+<body>
+    <h1>Calcula el mayor elemento de un array</h1>
+    <input type="text" placeholder="Introduce un número:" id="numero">
+    <button onclick="imprimir(listaNumeros)">Imprimir elementos</button>
+    <button onclick="var maximo = mayor(listaNumeros);document.getElementById('resultado').innerHTML = maximo">Calcular mayor</button>
+    <button onclick="var minimo = mayor(listaNumeros);document.getElementById('resultado').innerHTML = minimo">Calcular mínimo </button>
+    <button onclick="anadir()">Añadir</button>
+    <p id="resultado"></p>
+    <p id="numeros"></p>
+
+    <script>
+        var listaNumeros = [];          //vector
+        function anadir(){
+            let numero =  parseFloat(document.getElementById("numero").value);
+            listaNumeros.push(numero);
+            document.getElementById("numeros").innerHTML = listaNumeros;
+        }
+
+        function mayor(vector){
+            let mayor = vector[0];   //por defecto el primer elemento es el mayor
+            for (var i = 0;i < vector.length;i++){
+                if(vector[i]> mayor)
+                mayor = vector[i];    
+            }
+            return mayor;
+        }
+
+        function menor(vector){
+            let menor = vector[0];
+            for(var i = 0;i<vector.length;i++){
+                if(vector[i]< menor)
+                menor = vector[i];
+            }
+            return menor;
+        }
+
+
+        function imprimir(vector){
+            for(var contador = 0; contador<vector.length;i++){
+                document.getElementById("resultado").innerHTML = document.getElementById("resultado").innerHTML + vector[contador] + "<br/>"
+            }
+        }
+    </script>
+</body>
+</html>

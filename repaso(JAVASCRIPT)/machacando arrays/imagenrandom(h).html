@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen random</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body onload="seleccionaEscudo()">
+    <img src="" alt="" id="escudo">
+
+    <script>
+        let imagenes  = ["atm.jpg","milan.jpg","espana.jpg"]
+
+
+        function random(min,max){
+            return Math.floor((Math.random() * (max - min + 1)) + min);
+        }
+
+        function seleccionaEscudo(){
+            let numero = random(0,imagenes.length -1);
+            document.getElementById("escudo").src = "images/" + imagenes[numero];
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro</title>
+</head>
+<body>
+    <h1>Rellena el formulario con tus datos</h1>
+
+    <label for="">Nombre:</label><input type="text" id="nombre"><span class="error" id="campo1"></span><br>
+    <label for="">Apellidos:</label><input type="text" id="apellidos"><span class="error" id="campo2"></span><br>
+    <label for="">DNI:</label><input type="text" id="dni"><span class="error" id="campo3"></span><br>
+    <label for="">Email:</label><input type="email" id="email"><span class="error" id="campo4"></span><br>
+    <label for="">Contraseña:</label><input type="password" id="password1"><span class="error" id="campo5"></span><br>
+    <label for="">Repite contraseña:</label><input type="password" id="password2"><span class="error" id="campo6"></span><br>
+    <label for="">Fecha de nacimiento:</label><input type="date" id="fechanac"><span class="error" id="campo7"></span><br>
+    <label for="">Guardar datos:</label><input type="checkbox" id="Guardar"><span class="error" id="campo8"></span><br>
+
+    <button onclick="validar(document.getElementsByTagName('input'))">Validar</button>
+    <button onclick="guardar()">Guardar</button>
+    
+
+    <script>
+        function validar(elementos){
+    let estanCorrectos = true;
+    for (var i=0;i<elementos.length;i++){  //0 es el primer elemento
+        document.getElementById("campo"+(i+1).toString()).innerHTML = "";    
+        if (elementos[i].value == "" || (i==7 && !elementos[i].checked)){ 
+            document.getElementById("campo"+(i+1).toString()).innerHTML = "El campo " + elementos[i].id + " está vacío";
+            estanCorrectos = false;
+        }  
+    }
+    if (!validarEmail()){ 
+        document.getElementById("campo4").innerHTML = "Email no válido";        
+        estanCorrectos = false;
+    }
+    
+    if (!validaPasswords()){ 
+        document.getElementById("campo5").innerHTML = "La contraseña no cumple con requisitos de longitud o no coinciden";        
+        document.getElementById("campo6").innerHTML = "La contraseña no cumple con requisitos de longitud o no coinciden";
+        estanCorrectos = false;
+    }
+    if (!validarDNI()){ 
+        document.getElementById("campo3").innerHTML = "DNI no valido (12345678X)";        
+        estanCorrectos = false;
+        }
+        if (!validarEdad()){ 
+        document.getElementById("campo7").innerHTML = "Debes tener 18 años o más";        
+        estanCorrectos = false;
+        }
+
+
+        /*if(estanCorrectos == true){ //quitariamos el return estanCorrectos;
+            document.getElementById("parrafo").innerHTML = "Usuario registrado con éxito"
+        }*/
+    return estanCorrectos;
+}
+
+
+function validarEmail(){              
+	var valido;
+	var emailField = document.getElementById('email');
+	var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+	if( validEmail.test(emailField.value) ){
+		valido=true;
+	}else{
+        valido=false;
+	}
+    return valido;
+} 
+
+function validaPasswords(){
+    let clave1 = document.getElementById("password1").value;
+    let clave2 = document.getElementById("password2").value;
+    let passwordsOK = true; 
+    let contravalida = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    if (!contravalida.test(clave1) || (clave1!==clave2))     // .test siempre devuelve TRUE. si la contraseña no es valida, pues devolvera false
+        passwordsOK = false;
+    return passwordsOK;
+    }
+
+    function validarDNI(){
+            var letra = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'];
+            var cadena = document.getElementById("dni").value;
+            var numero = parseInt(cadena.substring(0,8));
+            var letraUsuario = cadena[8]; // Letra escrita por el usuario, el string..toUpperCase() sirve para que convierta la letra a mayus el sistema
+            var letraReal = letra[numero%23];    // letra "real" del DNI calculada según fórmula
+            var dniValido = true;        
+            if(letraUsuario!=letraReal) { //si no coincide las letras, es Falso
+                dniValido = false
+            }
+            return dniValido;
+        }
+
+function validarEdad(){
+    let fechanac = document.getElementById("fechanac").value;
+    let hoy = new Date();
+    let cumpleanos = new Date(fechanac);
+    let edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    let mes = hoy.getMonth() - cumpleanos.getMonth();
+    if(mes<0 || mes === 0 && hoy.getDate() < cumpleanos.getDate()){
+        edad--;
+    }
+    return edad >= 18;
+}
+
+function guardar(){
+    var guardar = document.getElementById("Guardar");
+    if(guardar.checked){
+        var datos = {
+            nombre: document.getElementById("nombre").value,
+            apellidos: document.getElementById("apellidos").value,
+            dni: document.getElementById("dni").value,
+            email: document.getElementById("email").value,
+            fechanac: document.getElementById("fechanac").value
+        }
+        localStorage.setItem("datos", JSON.stringify(datos));
+        alert("Los datos se han guardado correctamente.")
+    }
+}
+function cargar (){
+        var datosGuardados = localStorage.getItem("datos");
+        if(datosGuardados!==null){
+            var datos = JSON.parse(datosGuardados);
+            document.getElementById("nombre").value = datos.nombre;
+            document.getElementById("apellidos").value = datos.apellidos;
+            document.getElementById("dni").value = datos.dni;
+            document.getElementById("email").value = datos.email;
+            document.getElementById("fechanac").value = datos.fechanac;
+        }
+}
+
+window.onload = cargar;
+
+    </script>
+
+</body>
+</html>

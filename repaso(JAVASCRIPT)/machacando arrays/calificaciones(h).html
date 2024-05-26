@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular calificaciones</title>
+</head>
+<body>
+    <h1>Calcular las calificaciones</h1>
+    <label for="">Introduzca su calificación:</label>
+    <span><input type="number" id="numero"></span><br>
+    <button onclick="anadir()">Añadir calificacion</button>
+    <button onclick="borrar()">Borrar calificaciones</button>
+    <button onclick="media()">Hacer media</button>
+    <p id="aviso"></p>
+    <p id="notas"></p>              
+    <p id="resultado"></p>
+
+    <script>
+        var notas = [];     //variable global para las calificaciones
+        function anadir()   {
+            let numero = parseFloat(document.getElementById("numero").value);
+            //borramos cualquier mensaje de error previo
+            document.getElementById("aviso").innerHTML = ""
+            if(isNaN(numero))    {    //si la variable numero no es un numero, entonces:
+                document.getElementById("aviso").innerHTML = "Debes introducir un número entre 0 y 10"
+            }   
+            else{
+                if(numero<0 || numero>10){
+                    document.getElementById("aviso").innerHTML ="Debes introducir un número menor que 10 y mayor que 0"
+                }
+                else{
+                    notas.push(numero);
+                    document.getElementById("notas").innerHTML = notas;
+                }
+            }     
+        }
+
+
+        function borrar(){
+            document.getElementById("aviso").innerHTML = "";
+            document.getElementById("notas").innerHTML = "";
+            notas = [];
+            document.getElementById("resultado").innerHTML = notas;
+        }
+
+        function media(){
+            let total = 0.0;
+            for(var i = 0; i< notas.length;i++){
+                total += notas[i]
+            }
+            total = total / notas.length;
+            document.getElementById("resultado").innerHTML = total.toFixed(2);
+        }
+
+    </script>
+</body>
+</html>
